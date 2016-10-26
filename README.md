@@ -24,6 +24,25 @@ Example `~/.ansible.cfg` (or `/etc/ansible.cfg`):
 
     [defaults]
     remote_user = ansible
+    
+    [ssh_connection]
+    pipelining = True
 
     [privilege_escalation]
     become = True
+
+cloud-init Userdata example to get started immediately:
+
+```yaml
+#cloud-config
+users:
+  - name: ansible
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-...
+
+runcmd:
+  - sed -i -e '/requiretty/d' /etc/ssh/sshd_config
+  - systemctl restart sshd
+```
