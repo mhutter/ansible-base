@@ -1,0 +1,8 @@
+---
+- name: Create the swapfile
+  shell: 'fallocate -l 4G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile'
+  args:
+    creates: /swapfile
+
+- name: Add swap to fstab
+  mount: src=/swapfile name=none fstype=swap opts=sw state=present

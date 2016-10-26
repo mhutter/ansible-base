@@ -1,0 +1,20 @@
+---
+- name: Disable firewalld
+  service: name=firewalld enabled=no state=stopped
+
+- name: 'firewall: Allow all traffic on eth1'
+  iptables: chain=INPUT in_interface=eth1 jump=ACCEPT
+
+- name: 'firewall: Allow related and established connections'
+  iptables: chain=INPUT ctstate=ESTABLISHED,RELATED jump=ACCEPT
+
+- name: 'firewall: Allow Ping'
+  iptables: chain=INPUT protocol=icmp jump=ACCEPT
+#  iptables: chain=INPUT protocol=icmp icmp_type=echo-request jump=ACCEPT <-- icmp_type requires Ansible 2.2
+
+- name: 'firewall: Allow SSH access'
+  iptables: chain=INPUT destination_port=22 protocol=tcp jump=ACCEPT
+
+- name: 'firewall: Drop everything else'
+  iptables: chain=INPUT jump=DROP
+
