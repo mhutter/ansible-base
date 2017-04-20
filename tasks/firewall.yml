@@ -9,12 +9,10 @@
   iptables: chain=INPUT ctstate=ESTABLISHED,RELATED jump=ACCEPT
 
 - name: 'firewall: Allow Ping'
-  iptables: chain=INPUT protocol=icmp jump=ACCEPT
-#  iptables: chain=INPUT protocol=icmp icmp_type=echo-request jump=ACCEPT <-- icmp_type requires Ansible 2.2
+  iptables: chain=INPUT protocol=icmp icmp_type=echo-request jump=ACCEPT
 
 - name: 'firewall: Allow SSH access'
   iptables: chain=INPUT destination_port=22 protocol=tcp jump=ACCEPT
 
 - name: 'firewall: Drop everything else'
   iptables: chain=INPUT jump=DROP
-

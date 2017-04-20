@@ -1,11 +1,9 @@
 ---
-# Requires Ansible 2.2:
-#- name: Set Timezone to Europe/Zurich
-#  timezone: name=Europe/Zurich
+- name: Set Timezone to Europe/Zurich
+  timezone: name=Europe/Zurich
 
 - name: Install NTP
   package: name=ntp state=present
 
 - name: Enable NTP
   service: name=ntpd enabled=yes state=started
-

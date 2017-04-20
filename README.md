@@ -1,47 +1,36 @@
-# ansible-base
+Role Name
+=========
 
 Base setup for my servers :rocket:
 
-**Q: What does it do?** A: See `tasks/`
+Requirements
+------------
 
-## Getting started
+_Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required._
 
-Base playbook example:
+Role Variables
+--------------
 
-```yaml
----
-- hosts: all
-  roles:
-    - base
-```
+_A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well._
 
-Example `hosts` file:
+Dependencies
+------------
 
-    [droplets]
-    host1 ansible_ssh_host=1.2.3.4
+_A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles._
 
-Example `~/.ansible.cfg` (or `/etc/ansible.cfg`):
+Example Playbook
+----------------
 
-    [defaults]
-    remote_user = ansible
+    - hosts: servers
+      roles:
+         - { role: mhutter.base }
 
-    [ssh_connection]
-    pipelining = True
+License
+-------
 
-    [privilege_escalation]
-    become = True
+MIT
 
-cloud-init Userdata example to get started immediately:
+Author Information
+------------------
 
-```yaml
-#cloud-config
-users:
-  - name: ansible
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-...
-
-runcmd:
-  - sed -i -e '/requiretty/d' /etc/sudoers
-```
+> [Manuel Hutter](https://hutter.io) - GitHub [@mhutter](https://github.com)
