@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  name: base
   author: Manuel Hutter
   description: Base configuration for my Servers
   license: MIT
