@@ -25,4 +25,4 @@ ClientAliveCountMax 2
 
 # Required params
 UsePAM yes   # required to log in
-Subsystem sftp /usr/libexec/openssh/sftp-server   # required for ansible
+Subsystem sftp /usr/lib/sftp-server # required for ansible
