@@ -1,5 +1,6 @@
 Role Name
 =========
+[![Build Status](https://travis-ci.org/mhutter/ansible-base.svg?branch=master)](https://travis-ci.org/mhutter/ansible-base)
 
 Base setup for my servers :rocket:
 
