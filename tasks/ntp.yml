@@ -6,4 +6,4 @@
   package: name=ntp state=present
 
 - name: Enable NTP
-  service: name=ntpd enabled=yes state=started
+  service: name={{ ntp_service_name }} enabled=yes state=started

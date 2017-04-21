@@ -1,6 +1,6 @@
 ---
-- name: Disable firewalld
-  service: name=firewalld enabled=no state=stopped
+- name: Uninstall firewalld
+  package: name=firewalld state=absent
 
 - name: 'firewall: Allow all traffic on eth1'
   iptables: chain=INPUT in_interface=eth1 jump=ACCEPT
