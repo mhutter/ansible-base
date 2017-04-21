@@ -13,8 +13,15 @@
     - git
     - vim
     - tmux
+    - zsh
 
 - include: sshd.yml
+  tags: sshd
 - include: ntp.yml
+  tags: ntp
 - include: swap.yml
+  tags: swap
 - include: firewall.yml
+  tags: firewall
+- include: user.yml
+  tags: user
