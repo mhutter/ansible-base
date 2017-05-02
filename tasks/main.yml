@@ -2,8 +2,6 @@
 - name: Load distro-specific vars
   include_vars: "{{ ansible_os_family }}.yml"
 
-- include: "{{ ansible_distribution }}.yml"
-
 - name: Install base packages
   package:
     name: "{{ item }}"
@@ -11,11 +9,8 @@
   with_items:
     - curl
     - ntp
-    - wget
-    - git
     - vim
-    - tmux
-    - zsh
+    - wget
 
 - name: configure screen
   lineinfile:
@@ -28,9 +23,3 @@
   tags: sshd
 - include: ntp.yml
   tags: ntp
-- include: swap.yml
-  tags: swap
-- include: firewall.yml
-  tags: firewall
-- include: user.yml
-  tags: user
