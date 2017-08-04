@@ -12,13 +12,6 @@
     - vim
     - wget
 
-- name: configure screen
-  lineinfile:
-    state: present
-    dest: /etc/screenrc
-    regexp: startup_message
-    line: startup_message off
-
 - include: sshd.yml
   tags: sshd
 - include: ntp.yml
