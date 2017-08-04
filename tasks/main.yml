@@ -2,15 +2,15 @@
 - name: Load distro-specific vars
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: Install epel-release
+  package: name=epel-release
+  when: ansible_os_family == "RedHat"
+
 - name: Install base packages
   package:
     name: "{{ item }}"
     state: present
-  with_items:
-    - curl
-    - ntp
-    - vim
-    - wget
+  with_items: curl,htop,ntp,vim,wget
 
 - include: sshd.yml
   tags: sshd
