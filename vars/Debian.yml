@@ -1,2 +1,3 @@
 ---
 ntp_service_name: ntp
+sftp_path: /usr/lib/sftp-server

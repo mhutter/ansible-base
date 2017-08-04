@@ -1,0 +1,21 @@
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv XMODIFIERS
+AuthorizedKeysFile .ssh/authorized_keys
+ChallengeResponseAuthentication no
+ClientAliveCountMax 2
+ClientAliveInterval 120
+GSSAPIAuthentication no
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+LoginGraceTime 10
+MaxStartups 2:30:10
+PasswordAuthentication no
+PermitRootLogin no
+Subsystem sftp {{ sftp_path }} # required for ansible
+SyslogFacility AUTHPRIV
+UseDNS no
+UsePrivilegeSeparation sandbox
+X11Forwarding no
