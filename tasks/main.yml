@@ -12,7 +12,7 @@
     state: present
   with_items: curl,htop,ntp,vim,wget
 
-- include: sshd.yml
+- include_tasks: sshd.yml
   tags: sshd
-- include: ntp.yml
+- include_tasks: ntp.yml
   tags: ntp
