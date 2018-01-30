@@ -19,6 +19,8 @@
       - wget
   tags: pkg
 
+- include_tasks: user.yml
+  tags: user
 - include_tasks: sshd.yml
   tags: sshd
 - include_tasks: ntp.yml

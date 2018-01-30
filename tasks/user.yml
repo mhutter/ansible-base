@@ -1,0 +1,20 @@
+---
+- name: Create admin user
+  user:
+    name: '{{ base_admin_username }}'
+    shell: /bin/bash
+    state: present
+
+- name: Register authorized keys
+  authorized_key:
+    user: '{{ base_admin_username }}'
+    key: '{{ base_pubkey_url }}'
+
+- name: Add admin to sudoers
+  copy:
+    content: '{{ base_admin_username }} ALL = NOPASSWD: ALL'
+    dest: /etc/sudoers.d/base_admin
+    owner: root
+    group: root
+    mode: '0400'
+    validate: visudo -cf %s

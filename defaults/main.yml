@@ -1,0 +1,2 @@
+---
+base_pubkey_url: 'https://github.com/{{ base_admin_username }}.keys'
