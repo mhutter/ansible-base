@@ -14,8 +14,9 @@ LoginGraceTime 10
 MaxStartups 2:30:10
 PasswordAuthentication no
 PermitRootLogin no
-Subsystem sftp {{ sftp_path }} # required for ansible
+Subsystem sftp {{ sftp_path }}
 SyslogFacility AUTHPRIV
 UseDNS no
+UsePAM yes
 UsePrivilegeSeparation sandbox
 X11Forwarding no
