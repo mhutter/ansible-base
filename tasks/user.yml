@@ -1,7 +1,13 @@
 ---
+- name: Create SSH group
+  group:
+    name: ssh-user
+    system: true
+
 - name: Create admin user
   user:
     name: '{{ base_admin_username }}'
+    groups: ssh-user
     shell: /bin/bash
     state: present
 

@@ -1,19 +1,22 @@
-AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
-AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
-AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
-AcceptEnv XMODIFIERS
+# {{ ansible_managed }}
+AcceptEnv LANG LC_*
+AllowGroups ssh-user
 AuthorizedKeysFile .ssh/authorized_keys
 ChallengeResponseAuthentication no
+Ciphers {{ base_ssh_ciphers | join(',') }}
 ClientAliveCountMax 2
 ClientAliveInterval 120
 GSSAPIAuthentication no
-HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
+KexAlgorithms {{ base_ssh_kex_algorithms | join(',') }}
 LoginGraceTime 10
+MACs {{ base_ssh_macs | join(',') }}
 MaxStartups 2:30:10
 PasswordAuthentication no
 PermitRootLogin no
+Protocol 2
+PubkeyAuthentication yes
 Subsystem sftp {{ sftp_path }}
 SyslogFacility AUTHPRIV
 UseDNS no
