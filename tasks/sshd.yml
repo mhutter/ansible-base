@@ -7,6 +7,6 @@
     group: root
     mode: '0600'
     validate: /usr/sbin/sshd -t -f %s
-    backup: yes
+    backup: true
   notify:
     - restart sshd
