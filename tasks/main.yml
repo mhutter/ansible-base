@@ -8,17 +8,6 @@
   when: ansible_os_family == "RedHat"
   tags: pkg
 
-- name: Install base packages
-  package:
-    name:
-      - curl
-      - htop
-      - ntp
-      - tmux
-      - vim
-      - wget
-  tags: pkg
-
 - include_tasks: user.yml
   tags: user
 - include_tasks: sshd.yml
